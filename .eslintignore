@@ -1,0 +1,9 @@
+assets-dist/**
+
+node_modules/**
+
+**/*.md
+
+**/node_modules/**
+
+./lint.js

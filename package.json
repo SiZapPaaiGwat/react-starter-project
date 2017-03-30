@@ -1,0 +1,76 @@
+{
+  "name": "react-starter-project",
+  "version": "1.0.0",
+  "description": "for quick start",
+  "private": "true",
+  "scripts": {
+    "lint": "node ./lint.js",
+    "serve": "webpack-dev-server --config=webpack.development.js --content-base ./ --quiet",
+    "build-dev": "webpack -d --config=webpack.development.js",
+    "build": "webpack -p --config=webpack.production.js"
+  },
+  "dependencies": {
+    "antd": "latest",
+    "blueimp-md5": "latest",
+    "classnames": "latest",
+    "dejs": "latest",
+    "echarts": "latest",
+    "es6-promise": "^4.1.0",
+    "lodash": "latest",
+    "moment": "latest",
+    "numeral": "latest",
+    "react": "latest",
+    "react-addons-pure-render-mixin": "latest",
+    "react-dom": "latest",
+    "react-redux": "latest",
+    "react-router": "2.8.1",
+    "redux": "latest",
+    "redux-logger": "latest",
+    "redux-thunk": "latest",
+    "superagent": "latest",
+    "superagent-mocker": "latest"
+  },
+  "devDependencies": {
+    "babel-core": "latest",
+    "babel-eslint": "latest",
+    "babel-loader": "latest",
+    "babel-plugin-import": "latest",
+    "babel-polyfill": "latest",
+    "babel-preset-es2015": "latest",
+    "babel-preset-react": "latest",
+    "babel-preset-stage-0": "^6.22.0",
+    "bundle-loader": "latest",
+    "css-loader": "latest",
+    "eslint": "latest",
+    "eslint-config-standard": "latest",
+    "eslint-config-standard-react": "^4.3.0",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-node": "latest",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-standard": "^2.1.1",
+    "extract-text-webpack-plugin": "latest",
+    "file-loader": "latest",
+    "json-loader": "latest",
+    "react-addons-test-utils": "latest",
+    "react-hot-loader": "latest",
+    "style-loader": "latest",
+    "url-loader": "latest",
+    "webpack": "latest",
+    "webpack-dashboard": "latest",
+    "webpack-dev-server": "latest",
+    "webpack-md5-hash": "latest",
+    "yargs": "latest"
+  },
+  "engines": {
+    "node": ">=5.0.0",
+    "npm": ">=3.3.7"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  }
+}

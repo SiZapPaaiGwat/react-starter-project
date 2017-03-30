@@ -1,0 +1,17 @@
+@value colors: "../../styles/common.css";
+@value blue, red, green from colors;
+
+.header {
+  background-color: red;
+  color: #fff;
+}
+
+.footer {
+  background-color: green;
+  color: #fff;
+}
+
+.body {
+  background-color: blue;
+  color: #fff;
+}

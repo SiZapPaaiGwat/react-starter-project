@@ -1,0 +1,9 @@
+{
+  "extends": ["standard", "standard-react"],
+  "rules": {
+    "jsx-quotes": ["error", "prefer-double"]
+  },
+  "globals": {
+    "App": true
+  }
+}
