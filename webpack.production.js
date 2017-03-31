@@ -86,7 +86,7 @@ module.exports = {
       hash: true
     }),
     new OpenBrowserPlugin({
-      url: `${DEV_SERVER_HOST}/assets-dist/`
+      url: 'http://127.0.0.1:8080/assets-dist/'
     })
   ]
 }
