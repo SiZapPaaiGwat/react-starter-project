@@ -13,7 +13,7 @@ polyfill()
 
 message.config({
   top: 400,
-  duration: 2000
+  duration: 1800
 })
 
 /**

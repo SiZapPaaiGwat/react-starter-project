@@ -26,7 +26,7 @@ module.exports = {
     app: ['babel-polyfill', './assets/index.js'],
   },
   output: {
-    filename: './assets-dist/app.js',
+    filename: './assets-dist/app-[chunkhash:8].js',
     // 设置为根目录
     publicPath: '..'
   },
@@ -65,25 +65,23 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin({
-      filename: './assets-dist/styles/bundle.css',
+      filename: './assets-dist/styles/bundle-[contenthash:8].css',
       disable: false,
       allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: './assets-dist/common.js'
+      filename: './assets-dist/common-[chunkhash:8].js'
     }),
     new WebpackMd5Hash(),
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'assets/template.html'),
-      filename: path.join(__dirname, 'assets-dist/index.jsp'),
-      hash: true
+      filename: path.join(__dirname, 'assets-dist/index.jsp')
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'assets/template.html'),
-      filename: path.join(__dirname, 'assets-dist/index.html'),
-      hash: true
+      filename: path.join(__dirname, 'assets-dist/index.html')
     }),
     new OpenBrowserPlugin({
       url: 'http://127.0.0.1:8080/assets-dist/'

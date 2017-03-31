@@ -11,3 +11,7 @@
 body {
   background: url(../images/bg.png) no-repeat;
 }
+
+div {
+  padding: 10px;
+}
