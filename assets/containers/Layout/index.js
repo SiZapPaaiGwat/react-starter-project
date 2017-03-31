@@ -12,9 +12,9 @@ export default class Entry extends React.Component {
     params: React.PropTypes.object.isRequired
   }
 
-  render() {
+  render () {
     return (
-      <div>
+      <div className={style.wrapper}>
         <div className={style.header}>Header content</div>
         <div className={style.body}>
           <h1>Body content</h1>

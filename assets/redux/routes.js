@@ -9,8 +9,8 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import _ from 'lodash'
 import user from './reducers/user'
-import Layout from '../containers/Layout'
-import Home from '../containers/Home'
+import Layout from 'containers/Layout'
+import Home from 'containers/Home'
 
 function mapStateToProps (state) {
   return {
@@ -30,14 +30,14 @@ const Root = connect(
   mapDispatchToProps
 )(Layout)
 
-function requireAuth (nextState, replace) {
-  if (App.accountId === '' || App.userName === '') {
-    replace({
-      pathname: '/login'
-    })
-    return false
-  }
-}
+// function requireAuth (nextState, replace) {
+//   if (App.accountId === '' || App.userName === '') {
+//     replace({
+//       pathname: '/login'
+//     })
+//     return false
+//   }
+// }
 
 export default (
   <Router history={hashHistory}>

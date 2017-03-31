@@ -2,17 +2,26 @@
 var webpack = require('webpack')
 var Dashboard = require('webpack-dashboard');
 var DashboardPlugin = require('webpack-dashboard/plugin')
-var dashboard = new Dashboard()
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 var path = require('path')
 var _ = require('lodash')
 var pkg = require('./package.json')
 var argv = require('yargs').argv
+var dashboard = new Dashboard()
 var deps = Object.keys(pkg.dependencies)
 _.pull(deps, 'dejs')
 var DEV_SERVER_HOST = `http://127.0.0.1:8080`
 
 module.exports = {
+  resolve: {
+    alias: {
+      components: path.join(__dirname, '/assets/components'),
+      containers: path.join(__dirname, '/assets/containers'),
+      utils: path.join(__dirname, '/assets/utils'),
+      constants: path.join(__dirname, '/assets/constants')
+    }
+  },
   entry: {
     vendor: deps.concat([
       'webpack/hot/dev-server',
@@ -21,9 +30,8 @@ module.exports = {
     app: ['babel-polyfill', './assets/index.js']
   },
   output: {
-    filename: './assets-dist/app.js',
-    // 必须加上否则在js中require图片之后src路径不对
-    publicPath: DEV_SERVER_HOST
+    filename: './assets/app.js',
+    publicPath: ''
   },
   module: {
     loaders:[
@@ -41,39 +49,41 @@ module.exports = {
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader?modules',
-          publicPath: DEV_SERVER_HOST
+          publicPath: ''
         })
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         // name严格输出文件到本地目录，但是会导致css内的图片、字体资源路径不对
-        loader: `url-loader?limit=1024&name=./assets-dist/img/[hash].[ext]`
+        loader: `url-loader?limit=1024&name=../images/[name].[ext]`
       },
       // file-loader https://github.com/webpack/file-loader
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?.*)?$/,
-        loader: `file-loader?name=./assets-dist/fonts/[hash].[ext]`
+        loader: `file-loader?name=../fonts/[name].[ext]`
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        // This has effect on the react lib size
         "NODE_ENV": `"development"`
       }
     }),
     new ExtractTextPlugin({
-      filename: './assets-dist/css/bundle.css',
+      filename: './assets/styles/bundle.css',
       disable: false,
       allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: './assets-dist/common.js'
+      filename: './assets/common.js'
     }),
     new DashboardPlugin(dashboard.setData),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new OpenBrowserPlugin({
+      url: `${DEV_SERVER_HOST}/assets/`
+    })
   ],
   devtool: '#source-map'
 }

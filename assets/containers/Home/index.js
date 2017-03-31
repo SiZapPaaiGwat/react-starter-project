@@ -27,16 +27,16 @@ export default class Home extends React.Component {
     this.props.actions.toggleUserDialog()
   }
 
-  render() {
+  render () {
     let {showModal, datalist, insertUserLoading} = this.props.states.user
 
     return (
       <div>
         <h2>Home page</h2>
-        <hr/>
+        <hr />
         <button onClick={this.toggleDialog}>Toggle dialog</button>
         <h3>Dialog status: {showModal ? 'open' : 'closed'}</h3>
-        <hr/>
+        <hr />
         <button onClick={this.handleInsert}>Insert an user {insertUserLoading ? 'Adding ...' : ''}</button>
         <ul>
           {
