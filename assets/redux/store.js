@@ -2,7 +2,8 @@ import {createStore, applyMiddleware, combineReducers} from 'redux'
 import {createLogger} from 'redux-logger'
 import thunk from 'redux-thunk'
 import ajaxMiddleware from 'dejs/lib/redux-ajax-middleware'
-import user from './reducers/user'
+import Reduxis from 'reduxis'
+import './reducers/user'
 
 const loggerMiddleware = createLogger({
   level: 'info',
@@ -24,8 +25,6 @@ const create = window.devToolsExtension
 let finalStoreCreator = applyMiddleware(...middlewares)(create)
 
 export default (initialState) => {
-  let finalReducer = combineReducers({
-    user: user.getFinalReducer()
-  })
+  let finalReducer = combineReducers(Reduxis.assemble().reducers)
   return finalStoreCreator(finalReducer, initialState)
 }

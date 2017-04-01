@@ -1,14 +1,9 @@
-/**
- * dmp 主页:Menu导航菜单
- */
 import React from 'react'
 
 export default class Home extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any,
     actions: React.PropTypes.object,
-    states: React.PropTypes.object,
-    params: React.PropTypes.object
+    states: React.PropTypes.object
   }
 
   handleInsert = () => {
@@ -28,29 +23,37 @@ export default class Home extends React.Component {
   }
 
   render () {
-    let {showModal, datalist, insertUserLoading} = this.props.states.user
-
+    let {showModal, datalist, insertUserLoading, removeUserSelected} = this.props.states.user
+    let list = datalist.length ? (
+      <ul>
+        {
+          datalist.map(item => {
+            let onClick = () => {
+              this.handleRemove(item.uid)
+            }
+            return (
+              <li key={item.uid}>
+                uid: {item.uid} &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="javascript:;" onClick={removeUserSelected === item.uid ? null : onClick}>
+                  {removeUserSelected === item.uid ? 'Removing ...' : 'Remove'}
+                </a>
+              </li>
+            )
+          })
+        }
+      </ul>
+    ) : <p>No user now.</p>
     return (
       <div>
         <h2>Home page</h2>
         <hr />
-        <button onClick={this.toggleDialog}>Toggle dialog</button>
-        <h3>Dialog status: {showModal ? 'open' : 'closed'}</h3>
+        <button onClick={this.toggleDialog}>Toggle dialog (Sync action) </button>
+        <p>Dialog status: {showModal ? 'open' : 'closed'}</p>
         <hr />
-        <button onClick={this.handleInsert}>Insert an user {insertUserLoading ? 'Adding ...' : ''}</button>
-        <ul>
-          {
-            datalist.map(item => {
-              return (
-                <li key={item.uid}>
-                  uid: {item.uid} &nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href="javascript:;" onClick={this.handleRemove.bind(this, item.uid)}>Remove</a>
-                </li>
-              )
-            })
-          }
-        </ul>
-        <hr/>
+        <button onClick={this.handleInsert}>
+          {insertUserLoading ? 'Inserting ...' : 'Insert an user (Async action)'}
+        </button>
+        {list}
       </div>
     )
   }

@@ -1,14 +1,15 @@
 import {post} from 'dejs/lib/ajax'
-import Reduxis from '../reduxis'
+import Reduxis from 'reduxis'
 
 let reduxis = new Reduxis({
   initialState: {
     showModal: false,
     datalist: []
-  }
+  },
+  placeholder: 'user'
 })
 
-reduxis.addHandler({
+reduxis.addSyncHandler({
   actionName: 'toggleUserDialog',
   reducer: function (state) {
     return {
@@ -44,5 +45,3 @@ reduxis.addAsyncHandler({
     }
   }
 })
-
-export default reduxis

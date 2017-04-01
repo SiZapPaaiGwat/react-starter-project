@@ -10,6 +10,6 @@ export default function () {
     user
   ], {
     appContextPath: App.CONTEXT_PATH,
-    timeout: 1
+    timeout: 3000
   })
 }

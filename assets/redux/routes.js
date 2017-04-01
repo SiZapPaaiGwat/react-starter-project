@@ -8,7 +8,8 @@ import {Route, Router, hashHistory, IndexRedirect} from 'react-router'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import _ from 'lodash'
-import user from './reducers/user'
+import './reducers/user'
+import Reduxis from 'reduxis'
 import Layout from 'containers/Layout'
 import Home from 'containers/Home'
 
@@ -19,9 +20,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  let actions = bindActionCreators({
-    ...user.getActionMap()
-  }, dispatch)
+  let actions = bindActionCreators(Reduxis.assemble().actions, dispatch)
   return {actions}
 }
 
