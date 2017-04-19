@@ -1,4 +1,5 @@
 import React from 'react'
+import Panel from '../../components/Panel'
 
 export default class Home extends React.Component {
   static propTypes = {
@@ -54,6 +55,18 @@ export default class Home extends React.Component {
           {insertUserLoading ? 'Inserting ...' : 'Insert an user (Async action)'}
         </button>
         {list}
+        <hr />
+        <Panel
+          title="New User Panel"
+          placeholder="newPlayer"
+          {...this.props}
+        />
+        <hr />
+        <Panel
+          title="Active User Panel"
+          placeholder="activePlayer"
+          {...this.props}
+        />
       </div>
     )
   }

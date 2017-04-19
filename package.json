@@ -27,7 +27,7 @@
     "redux": "latest",
     "redux-logger": "latest",
     "redux-thunk": "latest",
-    "reduxis": "^1.1.0",
+    "reduxis": "^1.8.0",
     "superagent": "latest",
     "superagent-mocker": "latest"
   },
