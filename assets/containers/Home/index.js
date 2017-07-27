@@ -1,4 +1,5 @@
 import React from 'react'
+import {Button} from 'antd'
 import Panel from '../../components/Panel'
 
 export default class Home extends React.Component {
@@ -48,12 +49,12 @@ export default class Home extends React.Component {
       <div>
         <h2>Home page</h2>
         <hr />
-        <button onClick={this.toggleDialog}>Toggle dialog (Sync action) </button>
+        <Button onClick={this.toggleDialog}>Toggle dialog (Sync action) </Button>
         <p>Dialog status: {showModal ? 'open' : 'closed'}</p>
         <hr />
-        <button onClick={this.handleInsert}>
-          {insertUserLoading ? 'Inserting ...' : 'Insert an user (Async action)'}
-        </button>
+        <Button onClick={this.handleInsert} loading={insertUserLoading}>
+          Insert an user (Async action)
+        </Button>
         {list}
         <hr />
         <Panel

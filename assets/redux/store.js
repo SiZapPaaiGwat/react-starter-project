@@ -3,7 +3,8 @@ import {createLogger} from 'redux-logger'
 import thunk from 'redux-thunk'
 import ajaxMiddleware from 'dejs/lib/redux-ajax-middleware'
 import Reduxis from 'reduxis'
-import './reducers/user'
+import 'containers/Home/reducer'
+import 'components/Panel/reducer'
 
 const loggerMiddleware = createLogger({
   level: 'info',

@@ -1,15 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-import {polyfill} from 'es6-promise'
 import {message} from 'antd'
 import {ajaxSetup} from 'dejs/lib/ajax'
 
 import routes from './redux/routes'
 import createStore from './redux/store'
 import startMock from './mocks'
-
-polyfill()
 
 message.config({
   top: 400,

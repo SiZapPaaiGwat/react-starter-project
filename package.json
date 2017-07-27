@@ -1,42 +1,42 @@
 {
   "name": "react-starter-project",
   "version": "1.0.0",
-  "description": "for quick start",
+  "description": "a project for react learner",
   "private": "true",
   "scripts": {
     "lint": "node ./lint.js",
-    "serve": "webpack-dev-server --config=webpack.development.js --content-base ./ --quiet",
+    "serve": "webpack-dev-server --config=webpack.development.js --content-base ./ --host=0.0.0.0 --port=8090 --progress --colors",
     "build-dev": "webpack -d --config=webpack.development.js",
     "build": "webpack -p --config=webpack.production.js"
   },
   "dependencies": {
-    "antd": "latest",
-    "blueimp-md5": "latest",
+    "antd": "^2.10.2",
+    "babel-polyfill": "latest",
     "classnames": "latest",
     "dejs": "latest",
     "echarts": "latest",
-    "es6-promise": "^4.1.0",
+    "echarts-for-react": "^1.4.4",
+    "history": "^4.6.1",
     "lodash": "latest",
     "moment": "latest",
-    "numeral": "latest",
+    "prop-types": "^15.5.10",
     "react": "latest",
-    "react-addons-pure-render-mixin": "latest",
     "react-dom": "latest",
     "react-redux": "latest",
-    "react-router": "2.8.1",
+    "react-router": "3.0.5",
     "redux": "latest",
     "redux-logger": "latest",
     "redux-thunk": "latest",
-    "reduxis": "^1.8.0",
+    "reduxis": "latest",
     "superagent": "latest",
-    "superagent-mocker": "latest"
+    "superagent-mocker": "latest",
+    "url-parse": "^1.1.9"
   },
   "devDependencies": {
     "babel-core": "latest",
     "babel-eslint": "latest",
     "babel-loader": "latest",
     "babel-plugin-import": "latest",
-    "babel-polyfill": "latest",
     "babel-preset-es2015": "latest",
     "babel-preset-react": "latest",
     "babel-preset-stage-0": "^6.22.0",
@@ -52,8 +52,12 @@
     "eslint-plugin-standard": "^2.1.1",
     "extract-text-webpack-plugin": "latest",
     "file-loader": "latest",
+    "handlebars": "^4.0.10",
+    "handlebars-loader": "^1.5.0",
     "html-webpack-plugin": "^2.28.0",
     "json-loader": "latest",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
     "open-browser-webpack-plugin": "^0.0.5",
     "react-addons-test-utils": "latest",
     "react-hot-loader": "latest",
@@ -74,6 +78,15 @@
       "es2015",
       "react",
       "stage-0"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": true
+        }
+      ]
     ]
   }
 }

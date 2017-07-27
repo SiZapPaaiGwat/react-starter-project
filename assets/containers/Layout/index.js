@@ -2,7 +2,7 @@
  * dmp 主页:Menu导航菜单
  */
 import React from 'react'
-import style from './style.css'
+import style from './style.cssx'
 
 export default class Entry extends React.Component {
   static propTypes = {

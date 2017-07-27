@@ -1,8 +1,8 @@
 /*eslint-disable*/
 var webpack = require('webpack')
-var Dashboard = require('webpack-dashboard');
+var Dashboard = require('webpack-dashboard')
 var DashboardPlugin = require('webpack-dashboard/plugin')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 var path = require('path')
 var _ = require('lodash')
@@ -10,8 +10,9 @@ var pkg = require('./package.json')
 var argv = require('yargs').argv
 var dashboard = new Dashboard()
 var deps = Object.keys(pkg.dependencies)
-_.pull(deps, 'dejs')
-var DEV_SERVER_HOST = `http://127.0.0.1:8080`
+// remove antd from vendor
+_.pull(deps, 'dejs', 'babel-polyfill', 'antd')
+var DEV_SERVER_HOST = `http://127.0.0.1:${argv.port}`
 
 module.exports = {
   resolve: {
@@ -27,7 +28,7 @@ module.exports = {
       'webpack/hot/dev-server',
       'webpack-dev-server/client?' + DEV_SERVER_HOST
     ]),
-    app: ['babel-polyfill', './assets/index.js']
+    app: ['./assets/index.js']
   },
   output: {
     filename: './assets/app.js',
@@ -48,7 +49,24 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
+          use: 'css-loader',
+          publicPath: ''
+        })
+      },
+      {
+        test: /\.cssx$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
           use: 'css-loader?modules',
+          // 设置为相对loader的输出路径的路径
+          publicPath: ''
+        })
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!less-loader',
           publicPath: ''
         })
       },
@@ -84,6 +102,5 @@ module.exports = {
     new OpenBrowserPlugin({
       url: `${DEV_SERVER_HOST}/assets/`
     })
-  ],
-  devtool: '#source-map'
+  ]
 }

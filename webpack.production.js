@@ -10,7 +10,7 @@ var pkg = require('./package.json')
 var argv = require('yargs').argv
 var deps = Object.keys(pkg.dependencies)
 
-_.pull(deps, 'dejs', 'superagent-mocker')
+_.pull(deps, 'dejs', 'superagent-mocker', 'babel-polyfill', 'antd')
 
 module.exports = {
   resolve: {
@@ -23,7 +23,7 @@ module.exports = {
   },
   entry: {
     vendor: deps,
-    app: ['babel-polyfill', './assets/index.js'],
+    app: ['./assets/index.js'],
   },
   output: {
     filename: './assets-dist/app-[chunkhash:8].js',
@@ -41,7 +41,25 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
+          use: 'css-loader',
+          // 设置为相对loader的输出路径的路径
+          publicPath: '../../'
+        })
+      },
+      {
+        test: /\.cssx$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
           use: 'css-loader?modules',
+          // 设置为相对loader的输出路径的路径
+          publicPath: '../../'
+        })
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!less-loader',
           // 设置为相对loader的输出路径的路径
           publicPath: '../../'
         })
@@ -54,6 +72,10 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?.*)?$/,
         loader: `file-loader?name=./assets-dist/fonts/[name]-[hash:8].[ext]`
+      },
+      {
+        test: /\.hbs$/,
+        loader: 'handlebars-loader'
       }
     ]
   },
@@ -76,15 +98,8 @@ module.exports = {
     new WebpackMd5Hash(),
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'assets/template.html'),
-      filename: path.join(__dirname, 'assets-dist/index.jsp')
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'assets/template.html'),
-      filename: path.join(__dirname, 'assets-dist/index.html')
-    }),
-    new OpenBrowserPlugin({
-      url: 'http://127.0.0.1:8080/assets-dist/'
+      template: './assets/template.hbs',
+      filename: './assets-dist/home.jsp'
     })
   ]
 }
