@@ -1,92 +1,28 @@
 {
   "name": "react-starter-project",
-  "version": "1.0.0",
-  "description": "a project for react learner",
-  "private": "true",
-  "scripts": {
-    "lint": "node ./lint.js",
-    "serve": "webpack-dev-server --config=webpack.development.js --content-base ./ --host=0.0.0.0 --port=8090 --progress --colors",
-    "build-dev": "webpack -d --config=webpack.development.js",
-    "build": "webpack -p --config=webpack.production.js"
+  "version": "2.0",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "custom-react-scripts": "0.2.0"
   },
   "dependencies": {
-    "antd": "^2.10.2",
-    "babel-polyfill": "latest",
-    "classnames": "latest",
-    "dejs": "latest",
-    "echarts": "latest",
-    "echarts-for-react": "^1.4.4",
-    "history": "^4.6.1",
-    "lodash": "latest",
-    "moment": "latest",
+    "history": "4.7.2",
+    "mobx": "^3.2.2",
+    "mobx-react": "^4.2.2",
+    "promise.prototype.finally": "^3.0.0",
     "prop-types": "^15.5.10",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-redux": "latest",
-    "react-router": "3.0.5",
-    "redux": "latest",
-    "redux-logger": "latest",
-    "redux-thunk": "latest",
-    "reduxis": "latest",
-    "superagent": "latest",
-    "superagent-mocker": "latest",
-    "url-parse": "^1.1.9"
+    "query-string": "5.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "4.2.2"
   },
-  "devDependencies": {
-    "babel-core": "latest",
-    "babel-eslint": "latest",
-    "babel-loader": "latest",
-    "babel-plugin-import": "latest",
-    "babel-preset-es2015": "latest",
-    "babel-preset-react": "latest",
-    "babel-preset-stage-0": "^6.22.0",
-    "bundle-loader": "latest",
-    "css-loader": "latest",
-    "eslint": "latest",
-    "eslint-config-standard": "latest",
-    "eslint-config-standard-react": "^4.3.0",
-    "eslint-plugin-import": "latest",
-    "eslint-plugin-node": "latest",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^6.10.3",
-    "eslint-plugin-standard": "^2.1.1",
-    "extract-text-webpack-plugin": "latest",
-    "file-loader": "latest",
-    "handlebars": "^4.0.10",
-    "handlebars-loader": "^1.5.0",
-    "html-webpack-plugin": "^2.28.0",
-    "json-loader": "latest",
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5",
-    "open-browser-webpack-plugin": "^0.0.5",
-    "react-addons-test-utils": "latest",
-    "react-hot-loader": "latest",
-    "style-loader": "latest",
-    "url-loader": "latest",
-    "webpack": "latest",
-    "webpack-dashboard": "latest",
-    "webpack-dev-server": "latest",
-    "webpack-md5-hash": "latest",
-    "yargs": "latest"
-  },
-  "engines": {
-    "node": ">=5.0.0",
-    "npm": ">=3.3.7"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react",
-      "stage-0"
-    ],
-    "plugins": [
-      [
-        "import",
-        {
-          "libraryName": "antd",
-          "style": true
-        }
-      ]
-    ]
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
