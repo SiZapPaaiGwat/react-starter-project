@@ -1,38 +1,37 @@
-import {observable, action, runInAction} from 'mobx';
-import agent from '../agent';
-import userStore from './userStore';
+import {observable, action, runInAction} from 'mobx'
+import userStore from './userStore'
 
 class AuthStore {
-  @observable inProgress = false;
-  @observable errors = undefined;
+  @observable inProgress = false
+  @observable errors = undefined
 
   @observable values = {
     username: '',
     email: '',
-    password: '',
-  };
+    password: ''
+  }
 
   @action setUsername(username) {
-    this.values.username = username;
+    this.values.username = username
   }
 
   @action setEmail(email) {
-    this.values.email = email;
+    this.values.email = email
   }
 
   @action setPassword(password) {
-    this.values.password = password;
+    this.values.password = password
   }
 
   @action reset() {
-    this.values.username = '';
-    this.values.email = '';
-    this.values.password = '';
+    this.values.username = ''
+    this.values.email = ''
+    this.values.password = ''
   }
 
   @action login () {
-    this.inProgress = true;
-    this.errors = undefined;
+    this.inProgress = true
+    this.errors = undefined
     // TODO 报错
     setTimeout(() => {
       runInAction(() => {
@@ -51,4 +50,4 @@ class AuthStore {
   }
 }
 
-export default new AuthStore();
+export default new AuthStore()

@@ -1,13 +1,19 @@
-import React from 'react';
-import { inject, observer } from 'mobx-react';
-import { withRouter } from 'react-router-dom';
-import Banner from './Banner';
+import React from 'react'
+import { inject, observer } from 'mobx-react'
+import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import Banner from './Banner'
 
 @inject('commonStore', 'userStore')
 @withRouter
 @observer
 export default class Home extends React.Component {
-  render() {
+  static propTypes = {
+    commonStore: PropTypes.object,
+    userStore: PropTypes.object
+  }
+
+  render () {
     const {appName} = this.props.commonStore
     let {currentUser} = this.props.userStore
     let el = currentUser ? (
@@ -17,17 +23,17 @@ export default class Home extends React.Component {
       </div>
     ) : <span>Sign in please ...</span>
     return (
-      <div className="home-page">
+      <div>
 
         <Banner appName={appName} />
 
-        <div className="container page">
+        <div>
           <div className="row">
             {el}
           </div>
         </div>
 
       </div>
-    );
+    )
   }
 }

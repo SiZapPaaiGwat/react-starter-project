@@ -1,13 +1,18 @@
-import { Link } from 'react-router-dom'
-import ListErrors from '../../components/ListErrors'
+import {Link, withRouter} from 'react-router-dom'
 import React from 'react'
-import { inject, observer } from 'mobx-react'
-import { withRouter } from 'react-router-dom'
+import {inject, observer} from 'mobx-react'
+import PropTypes from 'prop-types'
+import {Button} from 'antd'
+import ListErrors from '../../components/ListErrors'
 
 @inject('authStore')
 @withRouter
 @observer
 export default class Login extends React.Component {
+  static propTypes = {
+    authStore: PropTypes.object
+  }
+
   handleEmailChange = e => this.props.authStore.setEmail(e.target.value)
 
   handlePasswordChange = e => this.props.authStore.setPassword(e.target.value)
@@ -19,17 +24,17 @@ export default class Login extends React.Component {
       // .then(() => this.props.history.replace('/'))
   }
 
-  render() {
-    const { values, errors, inProgress } = this.props.authStore
+  render () {
+    const {values, errors, inProgress} = this.props.authStore
 
     return (
-      <div className="auth-page">
-        <div className="container page">
-          <div className="row">
+      <div >
+        <div >
+          <div >
 
-            <div className="col-md-6 offset-md-3 col-xs-12">
-              <h1 className="text-xs-center">Sign In</h1>
-              <p className="text-xs-center">
+            <div >
+              <h1 >Sign In</h1>
+              <p >
                 <Link to="register">
                   Need an account?
                 </Link>
@@ -40,9 +45,8 @@ export default class Login extends React.Component {
               <form onSubmit={this.handleSubmitForm}>
                 <fieldset>
 
-                  <fieldset className="form-group">
+                  <fieldset >
                     <input
-                      className="form-control form-control-lg"
                       type="email"
                       placeholder="Email"
                       value={values.email}
@@ -50,9 +54,8 @@ export default class Login extends React.Component {
                     />
                   </fieldset>
 
-                  <fieldset className="form-group">
+                  <fieldset >
                     <input
-                      className="form-control form-control-lg"
                       type="password"
                       placeholder="Password"
                       value={values.password}
@@ -60,13 +63,12 @@ export default class Login extends React.Component {
                     />
                   </fieldset>
 
-                  <button
-                    className="btn btn-lg btn-primary pull-xs-right"
+                  <Button
                     type="submit"
                     disabled={inProgress}
                   >
                     Sign in
-                  </button>
+                  </Button>
 
                 </fieldset>
               </form>
