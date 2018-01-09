@@ -1,6 +1,7 @@
 import React from 'react'
 import {Switch, Route, withRouter} from 'react-router-dom'
 import {observer} from 'mobx-react'
+import 'utils/i18n'
 import Header from '../components/Header'
 import Home from './Home'
 import Login from './Login'
@@ -13,6 +14,7 @@ export default class App extends React.Component {
     return (
       <div className={styles.wrapper}>
         <Header />
+
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/" component={Home} />

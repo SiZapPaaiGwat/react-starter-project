@@ -46,6 +46,9 @@
     "babel-polyfill": "latest",
     "classnames": "latest",
     "history": "4.7.2",
+    "i18next": "^10.2.2",
+    "i18next-browser-languagedetector": "^2.1.0",
+    "i18next-xhr-backend": "^1.5.1",
     "mobx": "^3.2.2",
     "mobx-react": "^4.2.2",
     "moment": "latest",
@@ -54,6 +57,7 @@
     "query-string": "5.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-i18next": "^7.3.0",
     "react-router-dom": "4.2.2",
     "url-parse": "^1.1.9"
   },
