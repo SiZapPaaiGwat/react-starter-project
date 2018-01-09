@@ -12,7 +12,6 @@ var dashboard = new Dashboard()
 var deps = Object.keys(pkg.dependencies)
 
 _.pull(deps, 'babel-polyfill', 'antd')
-var DEV_SERVER_HOST = `http://127.0.0.1:${argv.port}`
 
 module.exports = {
   resolve: {
@@ -21,15 +20,13 @@ module.exports = {
       containers: path.join(__dirname, '/assets/containers'),
       utils: path.join(__dirname, '/assets/utils'),
       constants: path.join(__dirname, '/assets/constants'),
+      images: path.join(__dirname, '/assets/images'),
       styles: path.join(__dirname, '/assets/styles'),
       stores: path.join(__dirname, '/assets/stores')
     }
   },
   entry: {
-    vendor: deps.concat([
-      'webpack/hot/dev-server',
-      'webpack-dev-server/client?' + DEV_SERVER_HOST
-    ]),
+    vendor: deps,
     app: ['./assets/index.js']
   },
   output: {
@@ -51,17 +48,17 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader',
-          publicPath: ''
+          use: 'css-loader?modules',
+          publicPath: '../../'
         })
       },
       {
         test: /\.cssx$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?modules',
+          use: 'css-loader',
           // 设置为相对loader的输出路径的路径
-          publicPath: ''
+          publicPath: '../../'
         })
       },
       {
@@ -69,18 +66,18 @@ module.exports = {
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!less-loader',
-          publicPath: ''
+          publicPath: '../../'
         })
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         // name严格输出文件到本地目录，但是会导致css内的图片、字体资源路径不对
-        loader: `url-loader?limit=1024&name=../images/[name].[ext]`
+        loader: `url-loader?limit=1024&name=./assets/images/[name].[ext]`
       },
       // file-loader https://github.com/webpack/file-loader
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?.*)?$/,
-        loader: `file-loader?name=../fonts/[name].[ext]`
+        loader: `file-loader?name=./assets/fonts/[name].[ext]`
       }
     ]
   },
@@ -102,7 +99,7 @@ module.exports = {
     new DashboardPlugin(dashboard.setData),
     new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({
-      url: `${DEV_SERVER_HOST}/assets/`
+      url: `http://127.0.0.1:${argv.port}/dev.html`
     })
   ]
 }

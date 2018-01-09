@@ -1,11 +1,9 @@
 /*eslint-disable*/
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 var path = require('path')
 var _ = require('lodash')
 var pkg = require('./package.json')
-var argv = require('yargs').argv
 var deps = Object.keys(pkg.dependencies)
 
 _.pull(deps, 'babel-polyfill', 'antd')
@@ -17,6 +15,7 @@ module.exports = {
       containers: path.join(__dirname, '/assets/containers'),
       utils: path.join(__dirname, '/assets/utils'),
       constants: path.join(__dirname, '/assets/constants'),
+      images: path.join(__dirname, '/assets/images'),
       styles: path.join(__dirname, '/assets/styles'),
       stores: path.join(__dirname, '/assets/stores')
     }
@@ -28,7 +27,7 @@ module.exports = {
   output: {
     filename: './assets-dist/app.js',
     // 设置为根目录
-    publicPath: '..'
+    publicPath: ''
   },
   module: {
     loaders:[
@@ -41,7 +40,7 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader',
+          use: 'css-loader?modules',
           // 设置为相对loader的输出路径的路径
           publicPath: '../../'
         })
@@ -50,7 +49,7 @@ module.exports = {
         test: /\.cssx$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader?modules',
+          use: 'css-loader',
           // 设置为相对loader的输出路径的路径
           publicPath: '../../'
         })
@@ -72,17 +71,12 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?.*)?$/,
         loader: `file-loader?name=./assets-dist/fonts/[name]-[hash:8].[ext]`
-      },
-      {
-        test: /\.hbs$/,
-        loader: 'handlebars-loader'
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        // This has effect on the react lib size
         "NODE_ENV": `"production"`
       }
     }),
@@ -94,7 +88,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: './assets-dist/common.js'
-    }),
-    new webpack.optimize.UglifyJsPlugin()
+    })
   ]
 }

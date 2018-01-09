@@ -4,22 +4,15 @@
   <meta charset="UTF-8"/>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="keywords" content="React, Redux, reducer, actions"/>
-  <meta name="description" content="a starter project for react projects"/>
-  <title>react-starter-project</title>
-  <link rel="stylesheet" href="./styles/bundle.css" />
+  <meta name="keywords" content="React + MobX" />
+  <title>React Starter Project</title>
+  <link rel="stylesheet" href="./assets/styles/bundle.css" />
 </head>
 <body>
 <div id="container"></div>
 <script>
   (function() {
     window.App = {
-      // 生产环境自动排除mock
-      useMock: true,
-      // 项目根路径
-      CONTEXT_PATH: '',
-      accountId: '123',
-      userName: 'simonxu'
     }
   })()
 </script>
@@ -45,6 +38,6 @@ d&&96*d||c.screen.deviceXDPI||96;h["device-pixel-ratio"]=d||1},C=function(){clea
 m=0,I=u.length,s="#mediamatchjs { position: relative; z-index: 0; }",v="",F=c.addEventListener||(v="on")&&c.attachEvent;a.type="text/css";a.id="mediamatchjs";D.appendChild(a);for(E=c.getComputedStyle&&c.getComputedStyle(a)||a.currentStyle;m<I;m++)s+="@media "+u[m]+" { #mediamatchjs { position: relative; z-index: "+m+" } }";a.styleSheet?a.styleSheet.cssText=s:a.textContent=s;x=u[1*E.zIndex||0];D.removeChild(a);B();F(v+"resize",C);F(v+"orientationchange",C);return function(a){var c=t,e={matches:!1,
 media:a,addListener:function(a){l[c].listeners||(l[c].listeners=[]);a&&l[c].listeners.push(a)},removeListener:function(a){var b=l[c],d=0,e=0;if(b)for(e=b.listeners.length;d<e;d++)b.listeners[d]===a&&b.listeners.splice(d,1)}};if(""===a)return e.matches=!0,e;e.matches=A(a);t=l.push({mql:e,listeners:null});return e}}(window));
 </script>
-<script src="../node_modules/babel-polyfill/dist/polyfill.js"></script>
-<script src="./common.js"></script>
-<script src="./app.js"></script>
+<script src="./node_modules/babel-polyfill/dist/polyfill.js"></script>
+<script src="./assets/common.js"></script>
+<script src="./assets/app.js"></script>
