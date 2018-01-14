@@ -11,5 +11,9 @@ yarn run serve
 
 - 国际化
 - 主题选择
-- 模板生成
 - 异步action规范
+- manifest.json (for nodejs)
+
+## 单元测试
+
+- [Jest & Enzyme](https://semaphoreci.com/community/tutorials/how-to-test-react-and-mobx-with-jest)
