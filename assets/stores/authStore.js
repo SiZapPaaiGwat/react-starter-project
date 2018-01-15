@@ -11,19 +11,19 @@ class AuthStore {
     password: ''
   }
 
-  @action setUsername(username) {
+  @action setUsername (username) {
     this.values.username = username
   }
 
-  @action setEmail(email) {
+  @action setEmail (email) {
     this.values.email = email
   }
 
-  @action setPassword(password) {
+  @action setPassword (password) {
     this.values.password = password
   }
 
-  @action reset() {
+  @action reset () {
     this.values.username = ''
     this.values.email = ''
     this.values.password = ''
@@ -32,7 +32,6 @@ class AuthStore {
   @action login () {
     this.inProgress = true
     this.errors = undefined
-    // TODO 报错
     setTimeout(() => {
       runInAction(() => {
         this.inProgress = false
@@ -42,10 +41,9 @@ class AuthStore {
         })
       })
     }, 1000)
-
   }
 
-  @action logout() {
+  @action logout () {
     userStore.clear()
   }
 }

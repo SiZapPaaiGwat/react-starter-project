@@ -1,11 +1,10 @@
 import {observable, action, runInAction} from 'mobx'
 
 class UserStore {
-
   @observable currentUser = null
   @observable updatingUser = false
 
-  @action updateUser(newUser) {
+  @action updateUser (newUser) {
     this.updatingUser = true
     setTimeout(() => {
       runInAction(() => {
@@ -15,7 +14,7 @@ class UserStore {
     }, 1000)
   }
 
-  @action clear() {
+  @action clear () {
     this.currentUser = null
   }
 }
