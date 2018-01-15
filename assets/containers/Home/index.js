@@ -19,7 +19,7 @@ export default class Home extends React.Component {
     let el = currentUser ? (
       <div>
         <label>{currentUser.username}</label>
-        <strong>{currentUser.email}</strong>
+        <strong>{currentUser.password}</strong>
       </div>
     ) : <span>Sign in please ...</span>
     return (

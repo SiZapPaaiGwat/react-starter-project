@@ -1,46 +1,38 @@
-import {observable, action, runInAction} from 'mobx'
+import {observable, action} from 'mobx'
 import userStore from './userStore'
+
+async function sleep (ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, ms)
+  })
+}
 
 class AuthStore {
   @observable inProgress = false
   @observable errors = undefined
-
-  @observable values = {
-    username: '',
-    email: '',
-    password: ''
-  }
+  @observable username = ''
+  @observable password = ''
 
   @action setUsername (username) {
-    this.values.username = username
-  }
-
-  @action setEmail (email) {
-    this.values.email = email
+    this.username = username
   }
 
   @action setPassword (password) {
-    this.values.password = password
+    this.password = password
   }
 
   @action reset () {
-    this.values.username = ''
-    this.values.email = ''
-    this.values.password = ''
+    this.username = ''
+    this.password = ''
   }
 
   @action login () {
     this.inProgress = true
     this.errors = undefined
-    setTimeout(() => {
-      runInAction(() => {
-        this.inProgress = false
-        userStore.updateUser({
-          username: this.values.username,
-          email: this.values.email
-        })
-      })
-    }, 1000)
+    // 模拟异步操作
+    return sleep(3000).then(() => {
+      this.inProgress = false
+    })
   }
 
   @action logout () {

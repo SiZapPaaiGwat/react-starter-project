@@ -2,6 +2,8 @@ import React from 'react'
 import {Switch, Route, withRouter} from 'react-router-dom'
 import {observer} from 'mobx-react'
 import 'utils/i18n'
+import {IS_DEV} from 'utils'
+import DevTools from 'mobx-react-devtools'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Home from './Home'
@@ -22,6 +24,11 @@ export default class App extends React.Component {
         </Switch>
 
         <Footer />
+
+        {
+          IS_DEV ? <DevTools /> : null
+        }
+
       </div>
     )
   }

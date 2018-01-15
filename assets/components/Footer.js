@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {observer} from 'mobx-react'
-import {translate, Trans} from 'react-i18next'
+import {translate} from 'react-i18next'
 
 @translate('translations')
 @observer
@@ -18,14 +18,10 @@ export default class Footer extends React.Component {
     }
     return (
       <div >
-        <button onClick={() => changeLanguage('zh-CN')}>中文</button>
-        <button onClick={() => changeLanguage('en')}>EN</button>
+        <a style={{marginRight: 24}} href="javascript:;" onClick={() => changeLanguage('zh-CN')}>简体中文</a>
+        <a href="javascript:;" onClick={() => changeLanguage('en')}>English</a>
 
         <hr />
-        <Trans i18nKey="title">
-          预设内容
-        </Trans>
-        <br />
         <span>{t('description.part1')}</span>
       </div>
     )

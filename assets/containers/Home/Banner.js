@@ -4,12 +4,9 @@ import PropTypes from 'prop-types'
 const Banner = ({appName}) => {
   return (
     <div>
-      <div>
-        <h1>
-          {appName.toLowerCase()}
-        </h1>
-        <p>A place to share your knowledge.</p>
-      </div>
+      <h1>
+        {appName.toLowerCase()}
+      </h1>
     </div>
   )
 }

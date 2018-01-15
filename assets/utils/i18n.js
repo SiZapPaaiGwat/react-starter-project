@@ -2,8 +2,9 @@ import i18n from 'i18next'
 import Backend from 'i18next-xhr-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import {reactI18nextModule} from 'react-i18next'
+import {IS_DEV} from 'utils'
 
-const prefix = process.env.NODE_ENV === 'development' ? '/public' : ''
+const prefix = IS_DEV ? '/public' : ''
 
 i18n
   .use(Backend)
