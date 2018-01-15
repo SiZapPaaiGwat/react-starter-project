@@ -1,0 +1,9 @@
+{
+  "title": "欢迎使用React Starter Project",
+  "description": {
+    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
+    "part2": "使用上面的按钮实现中英文切换"
+  },
+  "login": "Login",
+  "logout": "Log out"
+}

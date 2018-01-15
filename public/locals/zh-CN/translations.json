@@ -1,0 +1,9 @@
+{
+  "title": "欢迎使用React Starter Project",
+  "description": {
+    "part1": "使用上面的语言切换按钮实现中英文切换",
+    "part2": "使用上面的按钮实现中英文切换"
+  },
+  "login": "注册",
+  "logout": "登录"
+}

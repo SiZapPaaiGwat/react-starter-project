@@ -3,6 +3,8 @@ import Backend from 'i18next-xhr-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import {reactI18nextModule} from 'react-i18next'
 
+const prefix = process.env.NODE_ENV === 'development' ? '/public' : ''
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -10,7 +12,7 @@ i18n
   .init({
     fallbackLng: 'en',
     backend: {
-      loadPath: '/assets-dist/locals/{{lng}}/{{ns}}.json'
+      loadPath: `${prefix}/locals/{{lng}}/{{ns}}.json`
     },
     ns: ['translations'],
     defaultNS: 'translations',

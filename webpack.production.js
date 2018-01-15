@@ -25,7 +25,7 @@ module.exports = {
     app: ['./assets/index.js'],
   },
   output: {
-    filename: './assets-dist/app.js',
+    filename: './public/assets-dist/app.js',
     // 设置为根目录
     publicPath: ''
   },
@@ -42,7 +42,7 @@ module.exports = {
           fallback: 'style-loader',
           use: 'css-loader?modules',
           // 设置为相对loader的输出路径的路径
-          publicPath: '../../'
+          publicPath: '../../../'
         })
       },
       {
@@ -51,7 +51,7 @@ module.exports = {
           fallback: 'style-loader',
           use: 'css-loader',
           // 设置为相对loader的输出路径的路径
-          publicPath: '../../'
+          publicPath: '../../../'
         })
       },
       {
@@ -60,17 +60,17 @@ module.exports = {
           fallback: 'style-loader',
           use: 'css-loader!less-loader',
           // 设置为相对loader的输出路径的路径
-          publicPath: '../../'
+          publicPath: '../../../'
         })
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         // 设置为输出路径
-        loader: `url-loader?limit=1024&name=./assets-dist/images/[name]-[hash:8].[ext]`
+        loader: `url-loader?limit=1024&name=./public/assets-dist/images/[name]-[hash:8].[ext]`
       },
       {
         test: /\.(ttf|eot|svg|woff(2)?)(\?.*)?$/,
-        loader: `file-loader?name=./assets-dist/fonts/[name]-[hash:8].[ext]`
+        loader: `file-loader?name=./public/assets-dist/fonts/[name]-[hash:8].[ext]`
       }
     ]
   },
@@ -81,13 +81,13 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin({
-      filename: './assets-dist/styles/bundle.css',
+      filename: './public/assets-dist/styles/bundle.css',
       disable: false,
       allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: './assets-dist/common.js'
+      filename: './public/assets-dist/common.js'
     })
   ]
 }
