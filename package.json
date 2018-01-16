@@ -68,6 +68,6 @@
     "serve": "webpack-dev-server --config=webpack.development.js --content-base ./ --host=0.0.0.0 --port=8090 --progress --colors",
     "build-dev": "webpack -d --config=webpack.development.js",
     "build": "webpack -p --config=webpack.production.js",
-    "test": "jest"
+    "test": "jest --coverage"
   }
 }
