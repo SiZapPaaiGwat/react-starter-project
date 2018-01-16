@@ -12,6 +12,18 @@
         "libraryName": "antd",
         "style": true
       }
-    ]
+    ],
+    ["module-resolver", {
+        "root": ["./assets"],
+        "alias": {
+          "components": "./assets/components",
+          "constants": "./assets/constants",
+          "containers": "./assets/containers",
+          "images": "./assets/images",
+          "stores": "./assets/stores",
+          "styles": "./assets/styles",
+          "utils": "./assets/utils"
+        }
+    }]
   ]
 }

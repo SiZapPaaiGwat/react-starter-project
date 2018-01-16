@@ -1,5 +1,6 @@
 import {observable, action} from 'mobx'
 import userStore from './userStore'
+import ajax from 'utils/ajax'
 
 async function sleep (ms) {
   return new Promise((resolve, reject) => {
@@ -9,7 +10,7 @@ async function sleep (ms) {
 
 class AuthStore {
   @observable inProgress = false
-  @observable errors = undefined
+  @observable errors = null
   @observable username = ''
   @observable password = ''
 
@@ -24,13 +25,28 @@ class AuthStore {
   @action reset () {
     this.username = ''
     this.password = ''
+    this.inProgress = false
+    this.errors = null
+  }
+
+  @action mockLogin () {
+    this.inProgress = true
+    this.errors = null
+    // 模拟异步操作
+    return sleep(3000).then(() => {
+      this.inProgress = false
+    })
   }
 
   @action login () {
     this.inProgress = true
-    this.errors = undefined
-    // 模拟异步操作
-    return sleep(3000).then(() => {
+    this.errors = null
+    return ajax.get('/').then(res => {
+    }).catch(err => {
+      this.errors = [
+        err
+      ]
+    }).finally(() => {
       this.inProgress = false
     })
   }
