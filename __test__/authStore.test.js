@@ -1,4 +1,3 @@
-/* eslint-disable */
 import nock from 'nock'
 import promiseFinally from 'promise.prototype.finally'
 import store from 'stores/authStore'

@@ -5,6 +5,7 @@ a starter project using react + mobx + react-router-dom
 ```bash
 yarn
 yarn run serve
+yarn run test
 ```
 
 ## RoadMap
@@ -12,7 +13,6 @@ yarn run serve
 - 国际化
 - 主题选择
 - 异步action规范
-- manifest.json (for nodejs)
 
 ## 单元测试
 

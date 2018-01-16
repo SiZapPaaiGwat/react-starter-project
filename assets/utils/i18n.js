@@ -17,7 +17,7 @@ i18n
     },
     ns: ['translations'],
     defaultNS: 'translations',
-    debug: true,
+    debug: IS_DEV,
     interpolation: {
       escapeValue: false
     },
