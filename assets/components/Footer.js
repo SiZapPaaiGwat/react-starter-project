@@ -32,7 +32,10 @@ export default class Footer extends React.Component {
         <a href="javascript:;" onClick={() => changeLanguage('en')}>English</a>
 
         <hr />
+
         <span>{t('description.part1')}</span>
+
+        <br />
 
         <a href="javascript:;" onClick={this.changeTheme}>换肤</a>
       </div>

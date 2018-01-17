@@ -8,7 +8,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Home from './Home'
 import Login from './Login'
-import styles from '../styles/main.css'
+import styles from './app.css'
 
 @withRouter
 @observer

@@ -1,15 +1,4 @@
-.wrapper {
-  width: 1000px;
-  margin: 0 auto;
-  padding: 30px 5px;
-}
-
-[data-theme="dark"] .wrapper {
-  background-color: #000;
-  color: #fff;
-}
-
-[data-theme="light"] .wrapper {
-  background-color: #fff;
-  color: #333;
+* {
+  margin: 0;
+  padding: 0;
 }

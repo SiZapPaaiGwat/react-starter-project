@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
 import {inject, observer} from 'mobx-react'
 
 @inject('commonStore')
@@ -14,9 +13,7 @@ export default class Header extends React.Component {
     return (
       <nav>
         <div>
-          <Link to="/">
-            <span>{this.props.commonStore.appName.toLowerCase()}</span>
-          </Link>
+          <h1>{this.props.commonStore.appName.toLowerCase()}</h1>
         </div>
       </nav>
     )
