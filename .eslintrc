@@ -2,7 +2,8 @@
   "extends": ["standard", "standard-react"],
   "parser": "babel-eslint",
   "rules": {
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "node/no-deprecated-api": 0
   },
   "env": {
     "browser": true,

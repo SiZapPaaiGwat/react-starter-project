@@ -12,11 +12,10 @@ export default class Header extends React.Component {
 
   render () {
     return (
-      <nav className="navbar navbar-light">
-        <div className="container">
-
-          <Link to="/" className="navbar-brand">
-            {this.props.commonStore.appName.toLowerCase()}
+      <nav>
+        <div>
+          <Link to="/">
+            <span>{this.props.commonStore.appName.toLowerCase()}</span>
           </Link>
         </div>
       </nav>
