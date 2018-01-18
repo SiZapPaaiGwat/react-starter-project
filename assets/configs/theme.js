@@ -28,19 +28,11 @@ export const themes = {
 
 /**
  * 主题皮肤模板，避免为每个模板重复设置
- * 这里配置 global 样式
+ * 这里配置 global 样式，一般是为第三方组件比如 antd 定制主题样式
  */
 export const globalThemeSkinTemplate = `
-  <%=themeSelector%> a:hover {
+  <%=themeSelector%> head {
     color: <%=theme.hoverColor || ''%>;
-  }
-
-  <%=themeSelector%> a {
-    color: <%=theme.anchorColor || ''%>;
-  }
-
-  <%=themeSelector%> h1, h2, h3 {
-    color: <%=theme.textColor || ''%>;
   }
 `
 

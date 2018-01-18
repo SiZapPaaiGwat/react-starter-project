@@ -4,7 +4,7 @@ import React from 'react'
 // import {useStrict} from 'mobx'
 import App from './containers/App'
 import 'styles/main.css'
-// import 'utils/globalThemeSkin'
+import 'utils/globalThemeSkin'
 
 promiseFinally.shim()
 // useStrict(true)
