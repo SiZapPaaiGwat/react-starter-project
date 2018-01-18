@@ -7,6 +7,7 @@ import {Provider} from 'mobx-react'
 import stores from './stores'
 import App from './containers/App'
 import 'styles/main.css'
+import 'utils/globalThemeSkin'
 
 promiseFinally.shim()
 // useStrict(true)

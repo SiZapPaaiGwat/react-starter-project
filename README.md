@@ -11,8 +11,7 @@ yarn run test
 ## RoadMap
 
 - 国际化
-- 主题选择
-- 异步action规范
+- 主题皮肤
 
 ## 单元测试
 

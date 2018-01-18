@@ -12,6 +12,7 @@ module.exports = {
   resolve: {
     alias: {
       components: path.join(__dirname, '/assets/components'),
+      configs: path.join(__dirname, '/assets/configs'),
       constants: path.join(__dirname, '/assets/constants'),
       containers: path.join(__dirname, '/assets/containers'),
       images: path.join(__dirname, '/assets/images'),

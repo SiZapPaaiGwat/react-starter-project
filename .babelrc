@@ -17,6 +17,7 @@
         "root": ["./assets"],
         "alias": {
           "components": "./assets/components",
+          "configs": "./assets/configs",
           "constants": "./assets/constants",
           "containers": "./assets/containers",
           "images": "./assets/images",

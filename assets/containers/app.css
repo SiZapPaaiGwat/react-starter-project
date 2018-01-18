@@ -1,27 +1,6 @@
-@value textColor, bgColor from 'styles/theme-dark.css';
-@value textColor as lightTextColor, bgColor as lightBgColor from 'styles/theme-light.css';
-
 .wrapper {
   width: 1000px;
   margin: 0 auto;
   padding: 30px 5px;
   transition: background-color 300ms, color 300ms;
-}
-
-[data-theme="light"] .wrapper {
-  background-color: lightBgColor;
-  color: lightTextColor;
-}
-
-[data-theme="light"] h1 {
-  color: lightTextColor;
-}
-
-[data-theme="dark"] .wrapper {
-  background-color: bgColor;
-  color: textColor;
-}
-
-[data-theme="dark"] h1 {
-  color: textColor;
 }

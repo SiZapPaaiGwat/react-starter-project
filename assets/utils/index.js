@@ -1,1 +1,6 @@
-export const IS_DEV = process.env.NODE_ENV === 'development'
+export function insertStyle (styleString) {
+  let style = document.createElement('style')
+  style.appendChild(document.createTextNode(styleString))
+  document.head.appendChild(style)
+  return style.sheet
+}
