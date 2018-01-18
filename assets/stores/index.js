@@ -6,7 +6,7 @@ import uiStore from './uiStore'
 import {CUSTOM_BODY_THEME_ATTR} from 'constants'
 
 autorun(() => {
-  document.body.setAttribute(CUSTOM_BODY_THEME_ATTR, uiStore.theme)
+  document.body.setAttribute(CUSTOM_BODY_THEME_ATTR, uiStore.themeName)
 })
 
 export default {

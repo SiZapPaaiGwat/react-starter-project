@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {observer, inject} from 'mobx-react'
 import {translate} from 'react-i18next'
+import {A} from 'components/styled'
 
 @translate('translations')
 @inject('uiStore')
@@ -14,7 +15,7 @@ export default class Footer extends React.Component {
   }
 
   changeTheme = () => {
-    if (this.props.uiStore.theme === 'light') {
+    if (this.props.uiStore.themeName === 'light') {
       this.props.uiStore.changeTheme('dark')
     } else {
       this.props.uiStore.changeTheme('light')
@@ -28,8 +29,8 @@ export default class Footer extends React.Component {
     }
     return (
       <div>
-        <a style={{marginRight: 24}} href="javascript:;" onClick={() => changeLanguage('zh-CN')}>简体中文</a>
-        <a href="javascript:;" onClick={() => changeLanguage('en')}>English</a>
+        <A style={{marginRight: 24}} href="javascript:;" onClick={() => changeLanguage('zh-CN')}>简体中文</A>
+        <A href="javascript:;" onClick={() => changeLanguage('en')}>English</A>
 
         <hr />
 
@@ -37,7 +38,7 @@ export default class Footer extends React.Component {
 
         <br />
 
-        <a href="javascript:;" onClick={this.changeTheme}>换肤</a>
+        <A href="javascript:;" onClick={this.changeTheme}>换肤</A>
       </div>
     )
   }

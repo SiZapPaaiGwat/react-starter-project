@@ -1,48 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Switch, Route, withRouter} from 'react-router-dom'
-import {observer, inject} from 'mobx-react'
-import 'utils/i18n'
+import {Switch, Route, HashRouter} from 'react-router-dom'
+import {observer, Provider} from 'mobx-react'
+import {ThemeProvider} from 'styled-components'
+import stores from 'stores'
 import {IS_DEV_MODE} from 'constants'
 import DevTools from 'mobx-react-devtools'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import {Wrapper} from 'components/styled'
 import Home from './Home'
 import Login from './Login'
 import styles from './app.css'
-import themes from 'configs/theme'
+import 'utils/i18n'
 
-@inject('uiStore')
-@withRouter
 @observer
 export default class App extends React.Component {
-  static propTypes = {
-    uiStore: PropTypes.object.isRequired
-  }
-
   render () {
-    const theme = themes[this.props.uiStore.theme]
-    const rules = {
-      color: theme.textColor,
-      backgroundColor: theme.bgColor
-    }
-
     return (
-      <div className={styles.wrapper} style={rules}>
-        <Header />
+      <Provider {...stores}>
+        <HashRouter>
+          <ThemeProvider theme={stores.uiStore.theme}>
+            <Wrapper className={styles.wrapper}>
+              <Header />
 
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/" component={Home} />
-        </Switch>
+              <Switch>
+                <Route path="/login" component={Login} />
+                <Route path="/" component={Home} />
+              </Switch>
 
-        <Footer />
+              <Footer />
 
-        {
-          IS_DEV_MODE ? <DevTools /> : null
-        }
-
-      </div>
+              {
+                IS_DEV_MODE ? <DevTools /> : null
+              }
+            </Wrapper>
+          </ThemeProvider>
+        </HashRouter>
+      </Provider>
     )
   }
 }
