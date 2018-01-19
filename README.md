@@ -10,8 +10,12 @@ yarn run test
 
 ## RoadMap
 
-- 国际化
-- 主题皮肤
+- [x] Redux => MobX
+- [x] i18n (react-i18next)
+- [x] 主题皮肤 (Css Modules + Styled Components)
+- [x] 单元测试 (Jest + Enzyme + nock)
+- [ ] K线图 (AnyStock / TradingView / AmStock / ECharts)
+- [ ] WebSocket (SockJS / Engine.io)
 
 ## 单元测试
 

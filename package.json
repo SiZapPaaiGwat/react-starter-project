@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "antd": "3.1.0",
+    "anychart-react": "^1.4.1",
     "apisauce": "0.14.3",
     "babel-polyfill": "6.26.0",
     "classnames": "2.2.5",
@@ -76,17 +77,17 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./__test__/setup.js",
-      "unmockedModulePathPatterns": [
-        "react"
-      ],
-      "testMatch": [
-        "**/__test__/?(*.)(spec|test).js?(x)"
-      ],
-      "collectCoverageFrom": [
-        "**/assets/**/*.js",
-        "!**/node_modules/**",
-        "!**/test/**",
-        "!**/example/**"
-      ]
+    "unmockedModulePathPatterns": [
+      "react"
+    ],
+    "testMatch": [
+      "**/__test__/?(*.)(spec|test).js?(x)"
+    ],
+    "collectCoverageFrom": [
+      "**/assets/**/*.js",
+      "!**/node_modules/**",
+      "!**/test/**",
+      "!**/example/**"
+    ]
   }
 }

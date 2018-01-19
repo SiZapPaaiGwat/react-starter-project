@@ -1,5 +1,5 @@
 import React from 'react'
-import {Switch, Route, HashRouter} from 'react-router-dom'
+import {Switch, Route, HashRouter as Router} from 'react-router-dom'
 import {observer, Provider} from 'mobx-react'
 import {ThemeProvider} from 'styled-components'
 import stores from 'stores'
@@ -10,6 +10,7 @@ import Footer from 'components/Footer'
 import {Wrapper} from 'components/styled'
 import Home from './Home'
 import Login from './Login'
+import StockChart from './StockChart'
 import styles from './app.css'
 import 'utils/i18n'
 
@@ -18,14 +19,15 @@ export default class App extends React.Component {
   render () {
     return (
       <Provider {...stores}>
-        <HashRouter>
+        <Router>
           <ThemeProvider theme={stores.uiStore.theme}>
             <Wrapper className={styles.wrapper}>
               <Header />
 
               <Switch>
+                <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />
-                <Route path="/" component={Home} />
+                <Route path="/chart" component={StockChart} />
               </Switch>
 
               <Footer />
@@ -35,7 +37,7 @@ export default class App extends React.Component {
               }
             </Wrapper>
           </ThemeProvider>
-        </HashRouter>
+        </Router>
       </Provider>
     )
   }

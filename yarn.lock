@@ -254,6 +254,18 @@ antd@3.1.0:
     shallowequal "^1.0.1"
     warning "~3.0.0"
 
+anychart-react@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/anychart-react/-/anychart-react-1.4.1.tgz#ed3900e7d165d60e370a0c0152bcb24582d39d2a"
+  dependencies:
+    anychart "^8.0.0"
+    react "^15.6.2"
+    react-dom "^15.6.2"
+
+anychart@^8.0.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/anychart/-/anychart-8.1.0.tgz#971860c7b79ab843043cb1812ada88000560c92f"
+
 anymatch@^1.3.0:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-1.3.2.tgz#553dcb8f91e3c889845dfdba34c77721b90b9d7a"
@@ -6528,6 +6540,15 @@ react-dom@16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-dom@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.2.tgz#41cfadf693b757faf2708443a1d1fd5a02bef730"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
+
 react-hot-loader@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-3.1.3.tgz#6f92877326958c7cb0134b512474517869126082"
@@ -6621,6 +6642,16 @@ react@16.0.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+react@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
+  dependencies:
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
