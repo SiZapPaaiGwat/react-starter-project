@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {Switch, Route, HashRouter} from 'react-router-dom'
 import {observer, Provider} from 'mobx-react'
 import {ThemeProvider} from 'styled-components'

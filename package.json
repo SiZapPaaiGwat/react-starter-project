@@ -17,14 +17,15 @@
     "bundle-loader": "^0.5.5",
     "css-loader": "^0.28.8",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-config-standard-react": "^4.3.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^6.10.3",
-    "eslint-plugin-standard": "^2.1.1",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-standard": "^3.0.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "handlebars": "^4.0.10",
@@ -37,7 +38,6 @@
     "mobx-react-devtools": "^4.2.15",
     "nock": "^9.1.6",
     "open-browser-webpack-plugin": "^0.0.5",
-    "react-addons-test-utils": "^15.6.2",
     "react-hot-loader": "^3.1.3",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
@@ -73,5 +73,20 @@
     "build-dev": "webpack -d --config=webpack.development.js",
     "build": "webpack -p --config=webpack.production.js",
     "test": "jest --coverage"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./__test__/setup.js",
+      "unmockedModulePathPatterns": [
+        "react"
+      ],
+      "testMatch": [
+        "**/__test__/?(*.)(spec|test).js?(x)"
+      ],
+      "collectCoverageFrom": [
+        "**/assets/**/*.js",
+        "!**/node_modules/**",
+        "!**/test/**",
+        "!**/example/**"
+      ]
   }
 }

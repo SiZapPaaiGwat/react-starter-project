@@ -13,7 +13,7 @@ i18n
   .init({
     fallbackLng: 'en',
     backend: {
-      loadPath: `${prefix}/locals/{{lng}}/{{ns}}.json`
+      loadPath: `${prefix}/locales/{{lng}}/{{ns}}.json`
     },
     ns: ['translations'],
     defaultNS: 'translations',
