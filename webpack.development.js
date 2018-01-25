@@ -1,14 +1,11 @@
 /*eslint-disable*/
 var webpack = require('webpack')
-var Dashboard = require('webpack-dashboard')
-var DashboardPlugin = require('webpack-dashboard/plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 var path = require('path')
 var _ = require('lodash')
 var pkg = require('./package.json')
 var argv = require('yargs').argv
-var dashboard = new Dashboard()
 var deps = Object.keys(pkg.dependencies)
 
 _.pull(deps, 'babel-polyfill', 'antd')
@@ -97,7 +94,6 @@ module.exports = {
       name: 'vendor',
       filename: './assets/common.js'
     }),
-    new DashboardPlugin(dashboard.setData),
     new webpack.HotModuleReplacementPlugin(),
     new OpenBrowserPlugin({
       url: `http://127.0.0.1:${argv.port}/dev.html`
